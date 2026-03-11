@@ -17,7 +17,6 @@
       return `${baseURL}?nocache=${timestamp}?${random}`;
     }
 
-    // Set the src via JavaScript, not HTML attribute
     const radio = document.getElementById('radio');
     radio.src = getStreamURL("https://s47.myradiostream.com:16586/;?type=http");
 
