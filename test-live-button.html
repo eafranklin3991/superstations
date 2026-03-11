@@ -14,7 +14,7 @@
     function getStreamURL(baseURL) {
       const timestamp = Math.floor(Date.now() / 1000);
       const random = Math.random();
-      return `${baseURL}?nocache=${timestamp}?${random}`;
+      return `${baseURL}?nocache=${timestamp}&${random}`;
     }
 
     const radio = document.getElementById('radio');
