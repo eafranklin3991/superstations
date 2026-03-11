@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radio Player</title>
+</head>
+<body>
+
+  <audio id="radio"></audio>
+  <button id="radioBtn" onclick="toggleRadio(this)">▶ Listen Live</button>
+
+  <script>
+    function getStreamURL(baseURL) {
+      const timestamp = Math.floor(Date.now() / 1000);
+      const random = Math.random();
+      return `${baseURL}?nocache=${timestamp}?${random}`;
+    }
+
+    // Set the src via JavaScript, not HTML attribute
+    const radio = document.getElementById('radio');
+    radio.src = getStreamURL("https://s47.myradiostream.com:16586/;?type=http");
+
+    function toggleRadio(btn) {
+      if (radio.paused) {
+        radio.play();
+        btn.textContent = '⏸ Pause';
+      } else {
+        radio.pause();
+        btn.textContent = '▶ Listen Live';
+      }
+    }
+  </script>
+
+</body>
+</html>
